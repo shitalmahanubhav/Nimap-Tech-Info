@@ -1,0 +1,25 @@
+﻿@model NimapInfotechMachineTest.Models.ProductModel
+
+@using (Html.BeginForm("SaveOrUpdate", "Product", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Product Name</label>
+                @Html.HiddenFor(m => m.ProductId)
+                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Category Name</label>
+                @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Category, "Value", "Text"), new { @class = "form-control  text-uppercase"})
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group mt-4 mb-0 form-actions">
+        <button type="submit" class="btn btn-dark" id="btnsubmit"> Save Record </button>
+    </div>
+}
